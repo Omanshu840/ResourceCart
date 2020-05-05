@@ -19,10 +19,12 @@ body{
 
 .card-section1 img {
   width: 100%;
+  height: 300px;
 }
 
-.card-section1 h3 {
-  padding: 20px;
+.card-section1 h5 {
+  margin: 10px;
+  padding-bottom:10px;
 }
 
 .card-section1:hover {
