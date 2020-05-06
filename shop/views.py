@@ -50,4 +50,4 @@ def productview(request, myid):
 
 
 def checkout(request):
-    return HttpResponse("Checkout Page")
+    return render(request, 'shop/checkout.html')
