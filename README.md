@@ -7,6 +7,7 @@ An E-Commerce WebSite
  - HTML
  - CSS
  - JavaScript
+ - BootStrap
  - SqlLite (Database)
 
 ## Features 
