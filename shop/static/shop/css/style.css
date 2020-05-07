@@ -1,7 +1,23 @@
 body{
-    background-color: #f2f7f7;
+    background-color: #E3E2DF;
+    font-family: 'Catamaran';font-size: 22px;
 }
 
+.navbar{
+    background-color: #5D001E;
+}
+
+.jumbotron{
+    background-color: #E3AFBC;
+}
+
+.card{
+    background-color: #E3AFBC;
+}
+
+.btn-dark{
+    background-color: #5D001E;
+}
 
 .carousel-indicators .active{
     background-color: black;
