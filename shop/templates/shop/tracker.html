@@ -1,0 +1,67 @@
+{% extends 'shop/basic.html' %} {% load static %}
+
+{% block title %} Home Page {% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="col my-5">
+        <h2>Resource Cart - Tracker your order</h2>
+        <div>
+            <h3 class="my-4">Enter Order ID and Email Address</h2>
+                <form method="post" action="#" id="trackerform"> {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="oderid">Order ID</label>
+                            <input type="name" class="form-control" id="oderid" placeholder="Order ID" name="orderid">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Track Order</button>
+                </form>
+        </div>
+    </div>
+    <div class="col my-5">
+        <h2>Your order Status</h2>
+        <div class="col my-4">
+            <ul class="list-group" id="items">
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    $('#trakerform').submit(function (event) {
+        $('items').empty();
+
+        var fromData = {
+            'orderid': $('input[name=orderid]').val(),
+            'email': $('input[name=email]').val(),
+            'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/shop/tracker/',
+            data: formData,
+            encode: true
+        })
+
+            .done(function (data) {
+                console.log(data)
+            });
+
+        event.preventDefault();
+    });
+</script>
+
+{% endblock %}

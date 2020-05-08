@@ -1,64 +1,68 @@
-<!doctype html>   {% load static %}
+<!doctype html> {% load static %}
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="{% static 'shop/css/bootstrap.min.css'  %}" />
-    <link rel="stylesheet" href="{% static 'shop/css/style.css'  %}" />
-    <link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet'>
+  <!-- Bootstrap CSS -->
 
-    <title>{% block title %}  {% endblock %}</title>
-  </head>
-  <body>
+  <link rel="stylesheet" href="{% static 'shop/css/bootstrap.min.css'  %}" />
+  <link rel="stylesheet" href="{% static 'shop/css/style.css'  %}" />
+  <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900' rel='stylesheet'>
+
+  <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="#"><img src="/media/shop/images/logo.jpg" height="75"
-				width="75"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <a class="navbar-brand" href="#">Resource Cart</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 18px;">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tracker</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav mr-5 order-3">
-          <button type="button" id = "popcart" class="btn btn-secondary" data-container="body" data-toggle="popover" data-html="true" data-placement="bottom" data-content="Vivamus
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: 18px;">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/tracker">Tracker</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-5 order-3">
+        <button type="button" id="popcart" class="btn btn-secondary" data-container="body" data-toggle="popover"
+          data-html="true" data-placement="bottom" data-content="Vivamus
           sagittis lacus vel augue laoreet rutrum faucibus.">
-            Cart(<span id="cart">0</span>)
-          </button>
-        </ul>
-      </div>
-    </nav>
+          Cart(<span id="cart">0</span>)
+        </button>
+      </ul>
+    </div>
+  </nav>
 
 
-    {% block body %}  {% endblock %}
+  {% block body %} {% endblock %}
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{% static 'shop/js/jquery.slim.min.js'  %}" ></script>
-    <script src="{% static 'shop/js/popper.min.js'  %}" ></script>
-    <script src="{% static 'shop/js/bootstrap.min.js'  %}" ></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'shop/js/jquery.slim.min.js'  %}"></script>
+  <script src="{% static 'shop/js/popper.min.js'  %}"></script>
+  <script src="{% static 'shop/js/bootstrap.min.js'  %}"></script>
 
-    {% block js %}{% endblock %}
+  {% block js %}{% endblock %}
 
-  </body>
+</body>
+
 </html>

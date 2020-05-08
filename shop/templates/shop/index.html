@@ -5,12 +5,21 @@
 
 {% block body %}
 
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Resource Cart</h1>
-    <p class="lead">E-Commerce website for all College Materials</p>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-10">
+    <div class="jumbotron jumbotron-fluid"
+      style="background-image: url({% static 'shop/img/jumbo-back.jpg'  %}); background-size: cover;">
+      <div class="container">
+        <h1 class="display-4 home-text">Resource Cart</h1>
+        <p class="lead home-text-sub">E-Commerce website for all College Materials</p>
+        <p class="lead">
+          <a class="btn btn-lg btn-drbg" href="#" role="button">Sign In</a>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
+
 
 
 
@@ -41,21 +50,29 @@
               <div class="card-body">
                 <h5 id="namepr{{i.id}}">{{i.product_name}}</h5>
                 <img src="/media/{{i.image}}" />
+                <p class="text-muted pt-3">
+                  Rs.{{i.price}}
+                </p>
               </div>
-              <div class="card-footer">
-                <span id="divpr{{i.id}}" class="divpr">
-                  <button id="pr{{i.id}}" class="btn btn-dark cart">Add to Cart</button>
-                </span>
-                <a href="/shop/productview/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-dark">Quick
-                    View</button></a>
+              <div class="container row">
+                <div class="col-6">
+                  <span id="divpr{{i.id}}" class="divpr">
+                    <button id="pr{{i.id}}" class="btn btn-ltbg cart">Add to Cart</button>
+                  </span>
+                </div>
+                <div class="col-6">
+                  <a href="/shop/productview/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-ltbg">Quick
+                      View</button></a>
+                </div>
               </div>
+
             </div>
 
             {% if forloop.counter|divisibleby:4 and forloop.counter > 0  and not forloop.last %}
           </div>
         </div>
       </div>
-      <div class="carousel-item active">
+      <div class=" carousel-item active">
         <div class="container">
           <div class="row">
             {% endif %}
@@ -128,7 +145,7 @@
     }
     popstr = popstr + "</div> <a href='/shop/checkout'<button class='btn btn-primary' id='checkout'>CheckOut</button></a> <button class='btn btn-primary' onclick='clearCart()' id='clearCart'>ClearCart</button></a>";
     document.getElementById('popcart').setAttribute('data-content', popstr);
-    $('#popcart').popover('show');
+    $('#popcart').popover();
   }
 
   function clearCart() {

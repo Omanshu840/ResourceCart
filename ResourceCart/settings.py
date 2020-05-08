@@ -54,7 +54,7 @@ ROOT_URLCONF = 'ResourceCart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates', 'ResourceCart/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
