@@ -32,6 +32,12 @@
 
             </ul>
         </div>
+        <h2>Your order Details</h2>
+        <div class="col my-4">
+            <ul class="list-group" id="citems">
+
+            </ul>
+        </div>
     </div>
 </div>
 
@@ -40,10 +46,10 @@
 {% block js %}
 
 <script>
-    $('#trakerform').submit(function (event) {
-        $('items').empty();
+    $('#trackerform').submit(function (event) {
+        $('#items').empty();
 
-        var fromData = {
+        var formData = {
             'orderid': $('input[name=orderid]').val(),
             'email': $('input[name=email]').val(),
             'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
@@ -57,7 +63,41 @@
         })
 
             .done(function (data) {
-                console.log(data)
+                data = JSON.parse(data);
+                updates = data[0];
+                if (updates.length > 0 & updates != {}) {
+
+                    for (i = 0; i < updates.length; i++) {
+                        let text = updates[i]['text'];
+                        let time = updates[i]['time'];
+                        mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+					${text}
+					<span class="badge badge-primary badge-pill">${time}</span>
+				</li>`
+
+                        $('#items').append(mystr);
+                    }
+                }
+                else {
+                    mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+					Wrong order details 
+				</li>`
+                    $('#items').append(mystr);
+                }
+
+                cart = JSON.parse(data[1]);
+                $('#citems').empty();
+                for (item in cart) {
+                    let name = cart[item][1];
+                    let qty = cart[item][0];
+                    mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+					${name}
+					<span class="badge badge-primary badge-pill">${qty}</span>
+				</li>`
+
+                    $('#citems').append(mystr);
+                }
+
             });
 
         event.preventDefault();
